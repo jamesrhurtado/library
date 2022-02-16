@@ -9,6 +9,37 @@
     <title>Library</title>
 </head>
 <body>
-    <h1>ONline Library</h1>
+    <h1 class="heading">Online Library</h1>
+    <div class="btn-new">
+        <button class = "btn-new-book" type = "button" onclick="openForm()">New Book</button>
+    </div>
+    <div class="form-popup" id="myForm">
+        <form action="" class= "form-container">
+            <h2>Add a new book</h2>
+            <label for="author"><b>Author</b></label>
+            <input type="text" placeholder="Author's name" name="author" required>
+        
+            <label for="title"><b>Title</b></label>
+            <input type="text" placeholder="Book's title" name="title" required>
+
+            <label for="pages"><b>Pages</b></label>
+            <input type="number" placeholder="Number of pages" name="pages" required>
+
+            <button type="submit" class = "btn">Submit</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        
+        </form>
+    </div>  
+    <div class="container">
+        <div class="card card-1">
+            <p>Author: </p>
+            <p>Title: </p>
+            <p>Pages: </p>
+            <div class="card-buttons">
+                <button class="btn">Read</button>
+                <button class = "btn">Remove</button>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

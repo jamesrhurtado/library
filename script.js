@@ -1,3 +1,12 @@
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+  }
+  
+  function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+  }
+
+
 let myLibrary = [];
 
 function Book(title, author, pages, read){
