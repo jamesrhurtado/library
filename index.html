@@ -17,15 +17,19 @@
         <form action="" class= "form-container">
             <h2>Add a new book</h2>
             <label for="author"><b>Author</b></label>
-            <input type="text" placeholder="Author's name" name="author" required>
+            <input type="text" placeholder="Author's name" name="author" id= "author" required>
         
             <label for="title"><b>Title</b></label>
-            <input type="text" placeholder="Book's title" name="title" required>
+            <input type="text" placeholder="Book's title" name="title" id="title" required>
 
             <label for="pages"><b>Pages</b></label>
-            <input type="number" placeholder="Number of pages" name="pages" required>
+            <input type="number" placeholder="Number of pages" name="pages" id = "pages" required>
 
-            <button type="submit" class = "btn">Submit</button>
+            <label for="read"><b>Have you read the book?</b></label>
+            <input type="radio" name="read" id = "read" value = "true" checked>Yes</input>
+            <input type="radio" name="read" id = "read" value = "false">No</input>
+
+            <button type="submit" class = "btn" onclick = "addBookToLibrary()">Submit</button>
             <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
         
         </form>

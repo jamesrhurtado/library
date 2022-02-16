@@ -23,16 +23,24 @@ body{
     text-align: center;
 }
 
+.btn:hover{
+    opacity: 1;
+}
 .btn-new{
     display: flex;
     justify-content: center;
+
 }
 .btn-new-book {
     padding: 0.5rem 0.75rem;
     width: 100px;
-    background-color: #e9ffcc;
+    background-color: #c4f880;
     border-radius: 20px;
     border: 1px solid black;
+}
+
+.btn-new-book:hover{
+    background-color: #e1fdbc;
 }
 
 .container{
@@ -55,6 +63,25 @@ body{
     border-radius: 10px;
 }
 
+.form-popup{
+    border: 3px solid #fff ;
+}
 #myForm{
     display: none;
+}
+
+.form-container{
+    background-color: #f1f1f1;
+    max-width: 350px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-container input{
+    width: 100%;
+    padding:10px;
+    background-color: #e4e3e3;
+    border: none;
 }
