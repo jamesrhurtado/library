@@ -1,8 +1,11 @@
-const author = document.getElementById("author-Field")
-const title = document.getElementById("title-Field")
-const pages = document.getElementById("pages")
-const read = document.getElementById('checkRead')
-
+const authorField = document.getElementById("author-Field")
+const titleField = document.getElementById("title-Field")
+const pagesField = document.getElementById("pages-Field")
+const readCheckbox = document.getElementById('checkRead')
+const cardContainer = document.querySelector('.container')
+const formResult = document.querySelector('.form-status')
+const btnSubmit = document.querySelector('.btn-add')
+let myLibrary = [];
 
 
 function openForm() {
@@ -14,20 +17,11 @@ function openForm() {
   }
 
 
-let myLibrary = [];
-
 function Book(title, author, pages, read){
     this.title = title
     this.author = author
     this.pages = pages
     this.read = read
-    this.info = function(){
-        if(read){
-            return  "The "+ title+ "by "+author+", "+pages+", has been read"
-        }else{	
-            return  "The "+ title+ "by "+author+", "+pages+", not read yet"
-        }
-    }   
 }
 
 Book.prototype.changeReadAttribute = function() {
@@ -57,7 +51,7 @@ function updateCards(){
           let readbtn = document.createElement("button");
           let removebtn = document.createElement("button");
           readbtn.textContent = "Read"
-          removebtn.textContent = myLibrary[i].read ? "Mark as Not Read" : "Masrk as Read"
+          removebtn.textContent = myLibrary[i].read ? "Mark as Not Read" : "Mark as Read"
           removebtn.dataset.row = i
           readbtn.dataset.row = i
           readbtn.addEventListener('click', (e) =>{
@@ -76,14 +70,30 @@ function updateCards(){
           title.textContent = "Title" + myLibrary[i].title
           pages.textContent = "N pages: " +myLibrary[i].pages
           read.textContent = "Read? " +myLibrary[i].read ? "Read" : "Not Read"
-
-
-
-
+          card.appendChild(author)
+          card.appendChild(title)
+          card.appendChild(pages)
+          card.appendChild(read)
+          card.appendChild(containerButtons)
+          cardContainer.appendChild(card)
         }
-
-
+    }else{
+        cardContainer.innerHTML = "<p> Currently, you do not have any books</p>"
     }
 }
 
 
+btnSubmit.addEventListener('click', () => {
+    if(authorField.value === "" || titleField.value === "" || pagesField.value === ""){
+        formResult.textContent = "Please complete all the fields required"
+        formResult.style.color = "red"
+    }else{
+        addBookToLibrary(titleField.value, authorField.value, pagesField.value, readCheckbox.checked)
+        authorField.textContent = ""
+        titleField.textContent = ""
+        pagesField.textContent = ""
+        readCheckbox.checked = false
+        formResult.textContent = "Sucess!"
+        formResult.style.color = "green"
+    }
+})
