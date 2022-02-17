@@ -32,9 +32,9 @@ function Book(title, author, pages, read){
 
 Book.prototype.changeReadAttribute = function() {
     if(this.read){
-    this.read = false
+        this.read = false
     }else{
-    this.read = true
+        this.read = true
     }
 }
 
@@ -52,6 +52,7 @@ function updateCards(){
           let author = document.createElement("p")
           let title = document.createElement("p")
           let pages = document.createElement("p")
+          let read = document.createElement('p')
           let containerButtons = document.createElement("div");
           let readbtn = document.createElement("button");
           let removebtn = document.createElement("button");
@@ -59,6 +60,25 @@ function updateCards(){
           removebtn.textContent = myLibrary[i].read ? "Mark as Not Read" : "Masrk as Read"
           removebtn.dataset.row = i
           readbtn.dataset.row = i
+          readbtn.addEventListener('click', (e) =>{
+              let row = parseInt(e.target.dataset.row)
+              myLibrary[row].changeReadAttribute()
+              updateCards()
+          });
+          removebtn.addEventListener('click', (e) => {
+              let row = parseInt(e.target.dataset.row)
+              myLibrary.splice(row, 1)
+              updateCards()
+          });
+          containerButtons.appendChild(readbtn)
+          containerButtons.appendChild(removebtn)
+          author.textContent = "Author: " + myLibrary[i].author
+          title.textContent = "Title" + myLibrary[i].title
+          pages.textContent = "N pages: " +myLibrary[i].pages
+          read.textContent = "Read? " +myLibrary[i].read ? "Read" : "Not Read"
+
+
+
 
         }
 
