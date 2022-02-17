@@ -1,3 +1,10 @@
+const author = document.getElementById("author-Field")
+const title = document.getElementById("title-Field")
+const pages = document.getElementById("pages")
+const read = document.getElementById('checkRead')
+
+
+
 function openForm() {
     document.getElementById("myForm").style.display = "block";
   }
@@ -23,15 +30,40 @@ function Book(title, author, pages, read){
     }   
 }
 
+Book.prototype.changeReadAttribute = function() {
+    if(this.read){
+    this.read = false
+    }else{
+    this.read = true
+    }
+}
+
+function addBookToLibrary(title, author, pages, read) {
+    let book = new Book(title, author, parseInt(pages), read)
+    myLibrary.push(book)
+    updateCards()
+}
+
+function updateCards(){
+
+    if(myLibrary.length > 0){
+        for(let i=0; i<myLibrary.length; i++){
+          let card = document.createElement("div")  
+          let author = document.createElement("p")
+          let title = document.createElement("p")
+          let pages = document.createElement("p")
+          let containerButtons = document.createElement("div");
+          let readbtn = document.createElement("button");
+          let removebtn = document.createElement("button");
+          readbtn.textContent = "Read"
+          removebtn.textContent = myLibrary[i].read ? "Mark as Not Read" : "Masrk as Read"
+          removebtn.dataset.row = i
+          readbtn.dataset.row = i
+
+        }
 
 
-function addBookToLibrary() {
-    const author = document.getElementById("author").value
-    const title = document.getElementById("title").value
-    const pages = document.getElementById("pages").value
-    const read = document.getElementById('input[name="read"]:checked').value
-    const book1 = new Book(title, author, pages, read)
-    console.log(author, title, pages)
+    }
 }
 
 

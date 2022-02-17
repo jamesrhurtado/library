@@ -85,3 +85,9 @@ body{
     background-color: #e4e3e3;
     border: none;
 }
+
+.c-checkread{
+    display: flex;
+    width: 180px;
+    margin: 15px;
+}
