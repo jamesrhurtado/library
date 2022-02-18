@@ -50,7 +50,8 @@ body{
 }
 
 .container{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap:10px;
     border: 3px dashed red;
     padding:15px;
@@ -64,6 +65,7 @@ body{
     border: 1px solid black;
 }
 
+
 .btn{
     padding: 0.3rem 0.75rem;
     border-radius: 10px;
@@ -71,10 +73,6 @@ body{
 
 .form-popup{
     border: 3px solid #fff ;
-    transform: translate(-50%, -50%) scale(1);
-}
-#myForm{
-    display: none;
 }
 
 .form-popup{
@@ -84,8 +82,13 @@ body{
     width: 350px;
     max-width: 350px;
     z-index: 1;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 0.2s ease-in-out;
 }
 
+.form-popup.active{
+    transform: translate(-50%, -50%) scale(1);
+}
 
 
 .form-container{

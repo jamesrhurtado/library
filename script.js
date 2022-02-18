@@ -6,18 +6,21 @@ const cardContainer = document.querySelector('.container')
 const formResult = document.querySelector('.form-status')
 const btnSubmit = document.querySelector('.btn-add')
 const overlay = document.getElementById("overlay")
+const formPopup =  document.getElementById("myForm")
 
 
 let myLibrary = [];
 
 
 function openForm() {
-    document.getElementById("myForm").style.display = "block";
+
+    formPopup.classList.add('active')
     overlay.classList.add('active')
 }
   
 function closeForm() {
-    document.getElementById("myForm").style.display = "none";
+
+    formPopup.classList.remove('active')
     overlay.classList.remove('active')
 }
 
@@ -75,7 +78,7 @@ function updateCards(){
           containerButtons.appendChild(removebtn)
           author.textContent = "Author: " + myLibrary[i].author
           title.textContent = "Title: " + myLibrary[i].title
-          pages.textContent = "N pages: " +myLibrary[i].pages
+          pages.textContent = myLibrary[i].pages + " pages"
           card.appendChild(author)
           card.appendChild(title)
           card.appendChild(pages)
