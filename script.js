@@ -74,6 +74,7 @@ function updateCards(){
           card.appendChild(pages)
           card.appendChild(read)
           card.appendChild(containerButtons)
+          card.className = "card"
           cardContainer.appendChild(card)
         }
     }else{
@@ -92,7 +93,7 @@ btnSubmit.addEventListener('click', () => {
         titleField.value = ""
         pagesField.value = ""
         readCheckbox.checked = false
-        formResult.textContent = "Sucess!"
+        formResult.textContent = "Success!"
         formResult.style.color = "green"
     }
 })
