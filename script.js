@@ -5,17 +5,24 @@ const readCheckbox = document.getElementById('checkRead')
 const cardContainer = document.querySelector('.container')
 const formResult = document.querySelector('.form-status')
 const btnSubmit = document.querySelector('.btn-add')
+const overlay = document.getElementById("overlay")
+
+
 let myLibrary = [];
 
 
 function openForm() {
     document.getElementById("myForm").style.display = "block";
-  }
+    overlay.classList.add('active')
+}
   
-  function closeForm() {
+function closeForm() {
     document.getElementById("myForm").style.display = "none";
-  }
+    overlay.classList.remove('active')
+}
 
+
+overlay.onclick = closeForm
 
 function Book(title, author, pages, read){
     this.title = title
@@ -93,7 +100,6 @@ btnSubmit.addEventListener('click', () => {
         titleField.value = ""
         pagesField.value = ""
         readCheckbox.checked = false
-        formResult.textContent = "Success!"
-        formResult.style.color = "green"
+        closeForm()
     }
 })
