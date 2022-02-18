@@ -14,7 +14,7 @@
         <button class = "btn-new-book" type = "button" onclick="openForm()">New Book</button>
     </div>
     <div class="form-popup" id="myForm">
-        <form action="" class= "form-container">
+        <div class="form-container">
             <h2>Add a new book</h2>
             <label for="author"><b>Author</b></label>
             <input type="text" placeholder="Author's name" name="author" id= "author-Field" required>
@@ -31,13 +31,12 @@
             </div>
 
 
-            <button type="submit" class = "btn-add" onclick = "submitData()">Submit</button>
+            <button type="submit" class = "btn btn-add" >Submit</button>
             <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
             <p class="form-status">
                 <br>
             </p>
-        
-        </form>
+        </div>
     </div>  
     <div class="container">
 

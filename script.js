@@ -39,7 +39,7 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 function updateCards(){
-
+    cardContainer.innerHTML = ""
     if(myLibrary.length > 0){
         for(let i=0; i<myLibrary.length; i++){
           let card = document.createElement("div")  
@@ -50,8 +50,8 @@ function updateCards(){
           let containerButtons = document.createElement("div");
           let readbtn = document.createElement("button");
           let removebtn = document.createElement("button");
-          readbtn.textContent = "Read"
-          removebtn.textContent = myLibrary[i].read ? "Mark as Not Read" : "Mark as Read"
+          readbtn.textContent = myLibrary[i].read ? "Read" : "Not Read"
+          removebtn.textContent = "Remove"
           removebtn.dataset.row = i
           readbtn.dataset.row = i
           readbtn.addEventListener('click', (e) =>{
@@ -67,9 +67,8 @@ function updateCards(){
           containerButtons.appendChild(readbtn)
           containerButtons.appendChild(removebtn)
           author.textContent = "Author: " + myLibrary[i].author
-          title.textContent = "Title" + myLibrary[i].title
+          title.textContent = "Title: " + myLibrary[i].title
           pages.textContent = "N pages: " +myLibrary[i].pages
-          read.textContent = "Read? " +myLibrary[i].read ? "Read" : "Not Read"
           card.appendChild(author)
           card.appendChild(title)
           card.appendChild(pages)
@@ -89,9 +88,9 @@ btnSubmit.addEventListener('click', () => {
         formResult.style.color = "red"
     }else{
         addBookToLibrary(titleField.value, authorField.value, pagesField.value, readCheckbox.checked)
-        authorField.textContent = ""
-        titleField.textContent = ""
-        pagesField.textContent = ""
+        authorField.value = ""
+        titleField.value = ""
+        pagesField.value = ""
         readCheckbox.checked = false
         formResult.textContent = "Sucess!"
         formResult.style.color = "green"
