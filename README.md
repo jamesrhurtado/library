@@ -1,6 +1,8 @@
 # TOP: Library
 A small library web app developed using HTML, CSS and Vanilla JavaScript. This project has been created as part of The Odin Project curriculum.
 
+**Live preview** of the project is [here]
+
 ## Overview
 
 ## Features
@@ -21,4 +23,4 @@ A small library web app developed using HTML, CSS and Vanilla JavaScript. This p
 - [Font Awesome icons]
 
    [Font Awesome Icons]: <https://fontawesome.com/>
- 
+   [here]: <https://jrenzzo.github.io/library/>
