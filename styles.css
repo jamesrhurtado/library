@@ -1,5 +1,4 @@
-
-*{
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,700;1,900&display=swap');*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -8,16 +7,25 @@
 }
 
 html{
-    background-color: rgb(152, 255, 238);
-    
-}
-html {
-    /* footer support */
+    background-color: var(--dark-gray  );
     position: relative;
     min-height: 100%;
-  }
+}
 
-body{
+:root{
+    --shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    --dark-gray:#283618;
+    --font-color: #FEFAE0;
+    --bg-card: #BC6C25;
+    --bg-button: #DDA15E;
+}
+
+.g-container, footer{
+    background-color: var(--dark-gray);
+}
+
+
+.g-container{
     padding:40px;
     gap:20px;
     display: flex;
@@ -25,6 +33,20 @@ body{
     flex-direction: column;
 }
 
+*{
+    font-family: Merriweather, sans-serif;
+}
+h1{
+    font-family: Merriweather, sans-serif;
+    font-style: italic;
+    font-weight: 900;
+    color: var(--font-color);
+}
+
+header{
+    padding:20px 15px;
+    background-color: #606C38;
+}
 .heading{
     text-align: center;
 }
@@ -38,22 +60,21 @@ body{
 
 }
 .btn-new-book {
-    padding: 0.5rem 0.75rem;
-    width: 100px;
-    background-color: #c4f880;
+    padding: 1rem 0.8rem;
+    width: 150px;   
+    background-color: var(--bg-button);
     border-radius: 20px;
     border: 1px solid black;
 }
 
 .btn-new-book:hover{
-    background-color: #e1fdbc;
+    background-color: #ddb88d;
 }
 
 .container{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap:10px;
-    border: 3px dashed red;
     padding:15px;
 }
 
@@ -63,17 +84,24 @@ body{
     flex-direction: column;
     gap:10px;
     border: 1px solid black;
+    background-color: var(--bg-card);
+    border-radius: 20px;
+    text-align: center;
+    color: var(--font-color);
+}
+
+.container p{
+    color: var(--font-color);
 }
 
 
 .btn{
     padding: 0.3rem 0.75rem;
     border-radius: 10px;
+    background-color: var(--bg-button);
+    border: 1px solid transparent;
 }
 
-.form-popup{
-    border: 3px solid #fff ;
-}
 
 .form-popup{
     position:fixed;
@@ -98,6 +126,7 @@ body{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    border-radius: 20px;
 }
 
 .form-container input{
@@ -105,12 +134,19 @@ body{
     padding:10px;
     background-color: #e4e3e3;
     border: none;
+    font-family: sans-serif;
 }
 
 .c-checkread{
     display: flex;
     width: 180px;
     margin: 15px;
+}
+
+.btns-card{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
 .footer{
@@ -122,6 +158,7 @@ body{
     justify-content: center;
     gap: 10px;
     width: 100%;
+    color: var(--font-color);
 }
 
 .fa-github {

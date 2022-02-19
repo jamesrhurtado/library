@@ -22,6 +22,7 @@ function closeForm() {
 
     formPopup.classList.remove('active')
     overlay.classList.remove('active')
+    formResult.textContent = ""
 }
 
 
@@ -62,6 +63,9 @@ function updateCards(){
           let removebtn = document.createElement("button");
           readbtn.textContent = myLibrary[i].read ? "Read" : "Not Read"
           removebtn.textContent = "Remove"
+          containerButtons.classList.add('btns-card')
+          readbtn.classList.add('btn')
+          removebtn.classList.add('btn')
           removebtn.dataset.row = i
           readbtn.dataset.row = i
           readbtn.addEventListener('click', (e) =>{
