@@ -28,20 +28,23 @@ function closeForm() {
 
 overlay.onclick = closeForm
 
-function Book(title, author, pages, read){
-    this.title = title
-    this.author = author
-    this.pages = pages
-    this.read = read
-}
 
-Book.prototype.changeReadAttribute = function() {
-    if(this.read){
-        this.read = false
-    }else{
-        this.read = true
+class Book{
+    constructor(title, author, pages, read){
+        this.title = title
+        this.author = author
+        this.pages = pages
+        this.read = read
+    }
+    changeReadAttribute(){
+        if(this.read){
+            this.read = false
+        }else{
+            this.read = true
+        }
     }
 }
+
 
 function addBookToLibrary(title, author, pages, read) {
     let book = new Book(title, author, parseInt(pages), read)
